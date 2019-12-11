@@ -4,7 +4,17 @@ Machine Learning Lecture: 모두를 위한 딥러닝 시즌 2 on Youtube
 
 ### Requirements
 
-1. Python 3.6.4 (virtual env)
+
+
+
+
+
+
+
+
+* 아래의 코드는 `ModuleNotFoundError: No module named 'tensorflow.python.tools'; 'tensorflow.python' is not a package`  발생으로 Anaconda로 python과 tensorflow를 다시 설정해 주었다. 
+
+1. ~~Python 3.6.4 (virtual env)~~
 
    1. [Python.org](https://www.python.org/downloads/windows/) 에서 Python 3.6.4 - Download [Windows x86-64 web-based installer](https://www.python.org/ftp/python/3.6.4/python-3.6.4-amd64-webinstall.exe)
 
@@ -26,7 +36,7 @@ Machine Learning Lecture: 모두를 위한 딥러닝 시즌 2 on Youtube
       1. on: `source ./[venv_name]/Script/activate`
       2. off: `deactivate`
 
-2. Repository
+2. ~~Repository~~
 
    `pip list` 를 통해 설치를 확인
 
@@ -120,5 +130,6 @@ $$
   $$
 
 - **Linear Regression의 경우, Convex function인 경우에만 Gradient descent algorithm을 사용**
+  
   - Convex function(볼록 함수)
 

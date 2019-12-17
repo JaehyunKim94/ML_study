@@ -1,47 +1,20 @@
 # Tensorflow TIL
 
-Machine Learning Lecture: 모두를 위한 딥러닝 시즌 2 on Youtube
+Machine Learning Lecture: [모두를 위한 딥러닝 시즌 2 on Youtube](https://www.youtube.com/playlist?list=PLQ28Nx3M4Jrguyuwg4xe9d9t2XE639e5C)
 
 ### Requirements
 
+- [Docker for Window 10 or upper (64-bit)](https://hub.docker.com/?overlay=onboarding)
+  - [Hyper-v 설정](https://docs.microsoft.com/ko-kr/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v)
+    - 관리자 권한으로 cmd 실행
+    - `DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V`
+    - Window >> 앱 및 기능 >> 프로그램 및 기능 >> Windows 기능 켜기/끄기 >> Hyper-v 체크
 
 
 
-
-
-
-
-
-* 아래의 코드는 `ModuleNotFoundError: No module named 'tensorflow.python.tools'; 'tensorflow.python' is not a package`  발생으로 Anaconda로 python과 tensorflow를 다시 설정해 주었다. 
-
-1. ~~Python 3.6.4 (virtual env)~~
-
-   1. [Python.org](https://www.python.org/downloads/windows/) 에서 Python 3.6.4 - Download [Windows x86-64 web-based installer](https://www.python.org/ftp/python/3.6.4/python-3.6.4-amd64-webinstall.exe)
-
-   2. 시스템 환경 변수 편집 >> 환경변수 >> 사용자 변수 >> Path
-
-      ```
-      C:\Users\LSJ\AppData\Local\Programs\Python\Python36
-      C:\Users\LSJ\AppData\Local\Programs\Python\Python36\Scripts
-      ```
-
-      위의 내용을 추가하고 상단에 위치시킨다.
-
-   3. 가상환경을 만들고자 하는 위치에서 가상 환경 생성
-
-      `python -m venv [venv_name]`
-
-   4. (선택) 원래의 버전으로 돌아가고자 한다면 환경변수를 삭제해준다. 
-   5. venv on / off
-      1. on: `source ./[venv_name]/Script/activate`
-      2. off: `deactivate`
-
-2. ~~Repository~~
-
-   `pip list` 를 통해 설치를 확인
-
-   1. Tensorflow 2.0.0 >> `pip install tensorflow`
-   2. Jupyter 1.0.0 >> `pip install jupyter` 
+- Test Hello world
+  - `$ docker run hello-world`
+  - ![Hello_Docker](./image/Hello_Docker.PNG)
 
 
 
@@ -89,6 +62,8 @@ Machine Learning Lecture: 모두를 위한 딥러닝 시즌 2 on Youtube
 
 - cost를 가장 작게하는 W & b를 구하는 것
 
+- [Simple Liner Regression LAB](https://www.youtube.com/watch?v=TvNd1vNEARw&list=PLQ28Nx3M4Jrguyuwg4xe9d9t2XE639e5C&index=4)
+
 
 
 ## 3. How to minimize cost
@@ -124,7 +99,7 @@ $$
 
 ​		- alpha: Learning rate
 
-- Gradient descent algorithm
+- Gradient descent algorithm - cost가 최소가 되는 W값을 찾아준다. 
   $$
   W := W - \alpha \frac{1}{m}\sum_{i=1}^m (Wx_i-y_i)x_i
   $$
@@ -132,4 +107,32 @@ $$
 - **Linear Regression의 경우, Convex function인 경우에만 Gradient descent algorithm을 사용**
   
   - Convex function(볼록 함수)
+
+- [Liner Regression and How to minimize cost LAB](https://www.youtube.com/watch?v=dtLaojGples&list=PLQ28Nx3M4Jrguyuwg4xe9d9t2XE639e5C&index=6)
+
+
+
+## 4. Multi-variable linear regression(다변수 선형 회귀)
+
+- Matrix multiplication
+  - Hypothesis using matrix
+    - matrix 장점: Data의 수와 상관없이 동일한 식으로 표현 할 수 있다. 
+
+$$
+w_1x_1 + w_2x_2 + w_3x_3 + ... + w_nx_n
+$$
+
+$$
+(x_1 \ x_2 \  x_3) * {w_1 \\w_2 \choose w_3 } = (x_1w_1 + x_2w_2 + x_3w_3)
+$$
+
+$$
+H(X) = XW
+$$
+
+- WX vs XW
+  - 이론적인 설명: H(x) = Wx + b
+  - Implementation(TensorFlow): H(X) = XW 
+
+- [Multi-variable linear regression LAB](https://www.youtube.com/watch?v=tmfo04t664Q&list=PLQ28Nx3M4Jrguyuwg4xe9d9t2XE639e5C&index=8)
 
